@@ -13,6 +13,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\TFG.Core\TFG.Core.csproj" />
+    <ProjectReference Include="..\TFG.Services.Interfaces\TFG.Services.Interfaces.csproj" />
+    <ProjectReference Include="..\TFG.Services\TFG.Services.csproj" />
   </ItemGroup>
 
 </Project>

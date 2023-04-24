@@ -10,7 +10,7 @@
     using TFG.Core.MVVM;
     using TFG.Core.Services.Interfaces;
 
-    public class MainWindowVM : ViewModelBase
+    public sealed partial class MainWindowVM : ViewModelBase
     {
         public MainWindowVM(IEventAggregator eventAggregator, IDialogService dialogService, IAppLogger logger) 
             : base(eventAggregator, dialogService, logger)
