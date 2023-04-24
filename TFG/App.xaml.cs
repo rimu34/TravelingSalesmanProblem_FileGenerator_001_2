@@ -1,28 +1,27 @@
 ﻿namespace TFG
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Configuration;
-    using System.Data;
-    using System.Linq;
-    using System.Threading.Tasks;
     using System.Windows;
     using Prism.DryIoc;
     using Prism.Ioc;
+    using TFG.Core;
+    using TFG.Core.Common.Enums;
+    using TFG.ViewModels;
+    using TFG.Views;
 
     /// <summary>
     /// Interaction logic for App.xaml
     /// </summary>
     public partial class App : PrismApplication
     {
-        protected override Window CreateShell()
-        {
-            throw new NotImplementedException();
-        }
+        protected override Window CreateShell() => Container.Resolve<MainWindow>();
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
-            throw new NotImplementedException();
+            // Register Services
+            containerRegistry.RegisterCoreServices();
+
+            //Register Views & ViewModels
+            containerRegistry.RegisterForNavigation<MainWindow, MainWindowVM>(ViewType.Shell.ToString());
         }
     }
 }
