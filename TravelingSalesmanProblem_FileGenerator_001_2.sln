@@ -11,9 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TFG.Core", "TFG.Core\TFG.Co
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{15B4A18D-213F-4E29-9EF9-E8A531012D13}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TFG.Services", "TFG.Services\TFG.Services.csproj", "{624B9831-E2EF-4313-88F6-18A7B8108CF0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TFG.Services", "TFG.Services\TFG.Services.csproj", "{624B9831-E2EF-4313-88F6-18A7B8108CF0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TFG.Services.Interfaces", "TFG.Services.Interfaces\TFG.Services.Interfaces.csproj", "{892FE52A-C43F-47C5-A72A-11E9BBBA9FD0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TFG.Services.Interfaces", "TFG.Services.Interfaces\TFG.Services.Interfaces.csproj", "{892FE52A-C43F-47C5-A72A-11E9BBBA9FD0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -1,0 +1,25 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <SolidColorBrush x:Key="Background"
+                     Color="#1C1C1E" />
+
+    <SolidColorBrush x:Key="BorderBrush"
+                     Color="#E0E0E0" />
+
+    <SolidColorBrush x:Key="CustomWindowButton_MouseOver"
+                     Color="#FFC00000" />
+
+    <SolidColorBrush x:Key="PrimaryTextColor"
+                     Color="#E0E0E0" />
+    
+    <SolidColorBrush x:Key="SecondaryTextColor"
+                     Color="#B3B3B3" />
+    
+    <SolidColorBrush x:Key="TextOnPrimary"
+                     Color="#FFFFFF" />
+    
+    <SolidColorBrush x:Key="TextOnSecondary"
+                     Color="#212121" />
+
+</ResourceDictionary>

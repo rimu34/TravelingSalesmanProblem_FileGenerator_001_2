@@ -1,12 +1,94 @@
 ﻿<Window x:Class="TFG.Views.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:TFG.Views"
-        mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+        xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
+        xmlns:prism="http://prismlibrary.com/"
+        xmlns:core="clr-namespace:TFG.Core;assembly=TFG.Core"
+        Title="{Binding Title, UpdateSourceTrigger=PropertyChanged}" 
+        Height="720" 
+        Width="1280"
+        MinHeight="600"
+        MinWidth="800"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        Background="Transparent"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="CanResizeWithGrip">
+
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/TFG.Core;component/Common/Styles/SharedStyles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+
+    <Border x:Name="MainGrid"
+            CornerRadius="10"
+            Background="{StaticResource Background}"
+            BorderBrush="{StaticResource BorderBrush}"
+            BorderThickness="2">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <Border x:Name="TitleBar"
+                    Style="{StaticResource CustomWindowTitleBar}"
+                    BorderThickness="0 0 0 1"
+                    MouseDown="TitleBar_MouseDown">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock Text="{Binding Title, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                               Style="{StaticResource WindowTitleText}" />
+
+                    <StackPanel Grid.Column="1"
+                                Orientation="Horizontal"
+                                Margin="0 0 10 2">
+                        <Button x:Name="BtnMinimize"
+                                Style="{StaticResource CustomWindowButton}"
+                                Click="BtnMinimize_Click">
+                            <fa:IconBlock Icon="WindowMinimize"
+                                          Foreground="{StaticResource SecondaryTextColor}"/>
+                        </Button>
+                        <Button x:Name="BtnMaximize"
+                                Style="{StaticResource CustomWindowButton}"
+                                Click="BtnMaximize_Click">
+                            <fa:IconBlock x:Name="BtnMaximize_Icon"
+                                          Icon="WindowMaximize"
+                                          Foreground="{StaticResource SecondaryTextColor}" />
+                        </Button>
+                        <Button x:Name="BtnClose"
+                                Style="{StaticResource CustomWindowButton}"
+                                Click="BtnClose_Click">
+                            <fa:IconBlock Icon="Close"
+                                          Foreground="{StaticResource SecondaryTextColor}" />
+                        </Button>
+                    </StackPanel>
+                </Grid>
+            </Border>
+
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="230" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Border x:Name="MenuBar"
+                        Grid.Column="0"
+                        BorderBrush="{StaticResource BorderBrush}"
+                        BorderThickness="0 0 1 0">
+                    
+                </Border>
+
+                <ContentControl x:Name="MainContentRegion"
+                                prism:RegionManager.RegionName="{x:Static core:RegionNames.MainContentRegion}" />
+            </Grid>
+        </Grid>
+    </Border>
 </Window>

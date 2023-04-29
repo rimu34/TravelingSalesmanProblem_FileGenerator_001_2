@@ -4,7 +4,7 @@
     {
         #region UI Properties
 
-        private string _title;
+        private string _title = "MainWindow";
 
         public string Title
         {
