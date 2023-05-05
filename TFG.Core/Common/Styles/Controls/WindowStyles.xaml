@@ -5,14 +5,26 @@
         <ResourceDictionary Source="pack://application:,,,/TFG.Core;component/Common/Styles/Colors/ApplicationColors.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
+    <SolidColorBrush x:Key="ApplicationBackground"
+                     Color="{StaticResource BackgroundColor}" />
+
+    <SolidColorBrush x:Key="ApplicationInternalBorder"
+                     Color="{StaticResource SecondaryTextColor}" />
+
+    <SolidColorBrush x:Key="ApplicationOuterBorder"
+                     Color="{StaticResource PrimaryTextColor}" />
+
+    <SolidColorBrush x:Key="ErrorWarning"
+                     Color="{StaticResource ErrorColor}" />
+
     <Style x:Key="CustomWindowTitleBar"
            TargetType="{x:Type Border}">
         <Setter Property="Background"
-                Value="{StaticResource Background}" />
+                Value="{StaticResource ApplicationBackground}" />
         <Setter Property="Height"
                 Value="25" />
         <Setter Property="BorderBrush"
-                Value="LightGray" />
+                Value="{StaticResource ApplicationOuterBorder}" />
         <Setter Property="BorderThickness"
                 Value="0 0 0 1" />
         <Setter Property="CornerRadius"
@@ -41,7 +53,7 @@
                                  Value="True">
                             <Setter TargetName="border"
                                     Property="Background"
-                                    Value="{StaticResource CustomWindowButton_MouseOver}" />
+                                    Value="{StaticResource ErrorWarning}" />
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>

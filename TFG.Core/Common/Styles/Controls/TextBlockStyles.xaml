@@ -5,6 +5,9 @@
         <ResourceDictionary Source="pack://application:,,,/TFG.Core;component/Common/Styles/Colors/ApplicationColors.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
+    <SolidColorBrush x:Key="TitleBarTextColor"
+                     Color="{StaticResource SecondaryTextColor}" />
+
     <Style x:Key="WindowTitleText"
            TargetType="{x:Type TextBlock}">
         <Setter Property="FontSize"
@@ -18,7 +21,7 @@
         <Setter Property="Margin"
                 Value="10 5" />
         <Setter Property="Foreground"
-                Value="{StaticResource SecondaryTextColor}" />
+                Value="{StaticResource TitleBarTextColor}" />
     </Style>
     
 </ResourceDictionary>

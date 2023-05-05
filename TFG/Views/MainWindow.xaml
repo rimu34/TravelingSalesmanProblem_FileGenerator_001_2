@@ -18,6 +18,7 @@
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/TFG;component/Controls/CustomMenuButton.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/TFG.Core;component/Common/Styles/SharedStyles.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
@@ -25,8 +26,8 @@
 
     <Border x:Name="MainGrid"
             CornerRadius="10"
-            Background="{StaticResource Background}"
-            BorderBrush="{StaticResource BorderBrush}"
+            Background="{StaticResource ApplicationBackground}"
+            BorderBrush="{StaticResource ApplicationOuterBorder}"
             BorderThickness="2">
         <Grid>
             <Grid.RowDefinitions>
@@ -54,20 +55,20 @@
                                 Style="{StaticResource CustomWindowButton}"
                                 Click="BtnMinimize_Click">
                             <fa:IconBlock Icon="WindowMinimize"
-                                          Foreground="{StaticResource SecondaryTextColor}"/>
+                                          Foreground="{StaticResource TitleBarTextColor}"/>
                         </Button>
                         <Button x:Name="BtnMaximize"
                                 Style="{StaticResource CustomWindowButton}"
                                 Click="BtnMaximize_Click">
                             <fa:IconBlock x:Name="BtnMaximize_Icon"
                                           Icon="WindowMaximize"
-                                          Foreground="{StaticResource SecondaryTextColor}" />
+                                          Foreground="{StaticResource TitleBarTextColor}" />
                         </Button>
                         <Button x:Name="BtnClose"
                                 Style="{StaticResource CustomWindowButton}"
                                 Click="BtnClose_Click">
                             <fa:IconBlock Icon="Close"
-                                          Foreground="{StaticResource SecondaryTextColor}" />
+                                          Foreground="{StaticResource TitleBarTextColor}" />
                         </Button>
                     </StackPanel>
                 </Grid>
@@ -75,18 +76,67 @@
 
             <Grid Grid.Row="1">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="230" />
+                    <ColumnDefinition Width="280" />
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
 
                 <Border x:Name="MenuBar"
                         Grid.Column="0"
-                        BorderBrush="{StaticResource BorderBrush}"
+                        BorderBrush="{StaticResource ApplicationInternalBorder}"
                         BorderThickness="0 0 1 0">
-                    
+
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        
+                        <StackPanel Grid.Row="0"
+                                    Orientation="Vertical">
+
+                            <RadioButton Style="{StaticResource CustomHamburgerMenuItem}"
+                                         GroupName="HamburgerMenu">
+
+                                <StackPanel Orientation="Horizontal">
+
+                                    <fa:IconImage Icon="HomeUser"
+                                                  Width="35"
+                                                  Height="35"
+                                                  Foreground="{Binding Foreground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type RadioButton}}}"
+                                                  Margin="15 5 5 5" />
+
+                                    <TextBlock Text="Home"
+                                               Style="{StaticResource CustomHamburgerMenuItemText}"
+                                               Foreground="{Binding Foreground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type RadioButton}}}" />
+
+                                </StackPanel>
+
+                            </RadioButton>
+
+                            <RadioButton Style="{StaticResource CustomHamburgerMenuItem}"
+                                         GroupName="HamburgerMenu">
+
+                                <StackPanel Orientation="Horizontal">
+
+                                    <fa:IconImage Icon="FileCirclePlus"
+                                                  Width="35"
+                                                  Height="35"
+                                                  Foreground="{Binding Foreground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type RadioButton}}}"
+                                                  Margin="15 5 5 5" />
+
+                                    <TextBlock Style="{StaticResource CustomHamburgerMenuItemText}">
+
+                                    </TextBlock>
+
+                                </StackPanel>
+
+                            </RadioButton>
+
+                        </StackPanel>
+                    </Grid>
                 </Border>
 
                 <ContentControl x:Name="MainContentRegion"
+                                Grid.Column="1"
                                 prism:RegionManager.RegionName="{x:Static core:RegionNames.MainContentRegion}" />
             </Grid>
         </Grid>
